@@ -5,11 +5,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import com.project3.ACSchapter5.productapi.dto.ProductDTO;
 import com.project3.ACSchapter5.productapi.model.Product;
@@ -44,11 +42,12 @@ public class ProductService {
         Product product = productRepository.save(Product.convert(productDTO));
         return ProductDTO.convert(product);
     }
-    public void delete(long productId){
+    public ProductDTO delete(long productId){
         Optional<Product> product = productRepository.findById(productId);
         if(product.isPresent()){
             productRepository.delete(product.get());
         }
+        return null;
     }
     public ProductDTO editProduct(long id, ProductDTO dto){
         Product product =  productRepository.findById(id).orElseThrow(()->new RuntimeException("Permission not found"));
