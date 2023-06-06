@@ -1,5 +1,6 @@
 package com.project3.ACSchapter5.productapi.dto;
 
+import com.project3.ACSchapter5.productapi.model.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -23,16 +24,4 @@ public class ProductDTO {
     @NotNull
     private Float preco;
     private CategoryDTO category;
-
-    public static ProductDTO convert(Product product){
-        ProductDTO productDTO = new ProductDTO();
-        productDTO.setNome(product.getNome());
-        productDTO.setPreco(product.getPreco());
-        productDTO.setDescricao(productDTO.getDescricao());
-        productDTO.setProductIdentifier(productDTO.getProductIdentifier());
-        if(product.getCategory() != null){
-            productDTO.setCategory(DTOconverter.convert(product.getCategory()));
-        }
-        return productDTO;
-    }
 }
