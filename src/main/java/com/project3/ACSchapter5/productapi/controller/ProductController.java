@@ -2,6 +2,8 @@ package com.project3.ACSchapter5.productapi.controller;
 
 import	java.util.List;
 
+import com.project3.ACSchapter5.productapi.model.Product;
+import com.project3.ACSchapter5.productapi.repository.ProductRepository;
 import	jakarta.validation.Valid;
 
 import	lombok.RequiredArgsConstructor;
